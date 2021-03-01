@@ -7,13 +7,30 @@ jobs:
       - checkout
       - run:
           name: install
-          command: npm install
+          command: cd backend && npm install
       - run:
           name: lint
-          command: npm run lint
+          command: cd backend && npm run lint
       - run:
           name: test
-          command: npm run test:ci
+          command: cd backend && npm run test:ci
       - run:
           name: build
-          command: npm run build
+          command: cd backend && npm run build
+  build-frontend:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: cd frontend && npm install
+      - run:
+          name: lint
+          command: cd frontend && npm run lint
+      - run:
+          name: test
+          command: cd frontend && npm run test:ci
+      - run:
+          name: build
+          command: cd frontend && npm run build
