@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
+import builtins from 'rollup-plugin-node-builtins';
 
 export default {
   input: 'src/index.jsx',
@@ -15,6 +16,7 @@ export default {
     format: 'umd'
   },
   plugins: [
+    builtins(),
     resolve({
       browser: true,
     }),
