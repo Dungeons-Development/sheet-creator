@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Dungeons-Development/sheet-creator.git#readme",
   "dependencies": {
-    "@tinymce/tinymce-react": "^3.10.2",
     "classnames": "^2.2.6",
     "install": "^0.13.0",
     "prop-types": "^15.7.2",
