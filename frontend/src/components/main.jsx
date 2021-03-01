@@ -1,9 +1,12 @@
 import styles from './main.scss';
 
+import { TinyMCE } from './tinymce.jsx'
+
 export const Main = () => {
   return (
     <div>
-      Sheet Creator
+      <h2>Sheet Creator</h2>
+      <TinyMCE />
     </div>
   );
 };
