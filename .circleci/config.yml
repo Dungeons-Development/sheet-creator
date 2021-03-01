@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: cd backend && npm install
+      - run:
+          name: lint
+          command: cd backend && npm run lint
+      - run:
+          name: test
+          command: cd backend && npm run test:ci
+  build-frontend:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: cd frontend && npm install
+      - run:
+          name: lint
+          command: cd frontend && npm run lint
+      - run:
+          name: test
+          command: cd frontend && npm run test:ci
+      - run:
+          name: build
+          command: cd frontend && npm run build
