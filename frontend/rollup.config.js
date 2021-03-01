@@ -12,7 +12,7 @@ export default {
   input: 'src/index.jsx',
   output: {
     file: 'dist/bundle.js',
-    format: 'cjs'
+    format: 'umd'
   },
   plugins: [
     resolve({
@@ -33,7 +33,8 @@ export default {
           'runtime': 'automatic',
           'importSource': 'preact-jsx-runtime'
         }]
-      ]
+      ],
+      babelHelpers: 'bundled'
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
