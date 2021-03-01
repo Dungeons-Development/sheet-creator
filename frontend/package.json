@@ -1,0 +1,58 @@
+{
+  "name": "storypointingpoker",
+  "version": "1.0.0",
+  "description": "Simple Planning Poker project",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c --watch",
+    "lint": "eslint ./src/*.jsx ./src/**/*.jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest ./src --watch --coverage",
+    "test:ci": "jest ./src --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianpoy/storypointingpoker.git"
+  },
+  "author": "Julian Poyourow & Chris Meyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julianpoy/storypointingpoker/issues"
+  },
+  "homepage": "https://github.com/julianpoy/storypointingpoker#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "install": "^0.13.0",
+    "preact": "^10.5.12",
+    "preact-compat": "^3.19.0",
+    "preact-jsx-runtime": "^1.2.0",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/plugin-transform-react-jsx": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-babel": "^5.2.3",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "@rollup/plugin-replace": "^2.3.4",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.22.0",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.4",
+    "rollup": "^2.38.5",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-serve": "^1.1.0",
+    "sass-loader": "^11.0.0"
+  }
+}
