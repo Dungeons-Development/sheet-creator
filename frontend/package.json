@@ -7,9 +7,9 @@
     "build": "rollup -c",
     "watch": "rollup -c --watch",
     "lint": "eslint ./src/*.jsx ./src/**/*.jsx",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "npm run lint --fix",
     "test": "jest ./src --watch --coverage",
-    "test:ci": "jest ./src --coverage"
+    "test:ci": "jest ./src --coverage --passWithNoTests"
   },
   "repository": {
     "type": "git",

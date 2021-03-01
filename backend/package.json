@@ -8,7 +8,7 @@
     "lint": "eslint ./src/*.js ./src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest ./src --watch --coverage",
-    "test:ci": "jest ./src --coverage"
+    "test:ci": "jest ./src --coverage --passWithNoTests"
   },
   "repository": {
     "type": "git",
