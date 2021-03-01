@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Dungeons-Development/sheet-creator.git#readme",
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.10.2",
     "classnames": "^2.2.6",
     "install": "^0.13.0",
     "prop-types": "^15.7.2",
@@ -46,7 +47,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.4",
     "rollup": "^2.38.5",
