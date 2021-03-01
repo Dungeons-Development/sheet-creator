@@ -1,7 +1,7 @@
 {
-  "name": "storypointingpoker",
+  "name": "sheet-creator",
   "version": "1.0.0",
-  "description": "Simple Planning Poker project",
+  "description": "DnD Document Creator project",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/julianpoy/storypointingpoker.git"
+    "url": "git+https://github.com/Dungeons-Development/sheet-creator.git"
   },
-  "author": "Julian Poyourow & Chris Meyer",
+  "author": "Julian Poyourow, Chris Meyer, & Michael Botsko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julianpoy/storypointingpoker/issues"
+    "url": "https://github.com/Dungeons-Development/sheet-creator.git/issues"
   },
-  "homepage": "https://github.com/julianpoy/storypointingpoker#readme",
+  "homepage": "https://github.com/Dungeons-Development/sheet-creator.git#readme",
   "dependencies": {
     "classnames": "^2.2.6",
     "install": "^0.13.0",
