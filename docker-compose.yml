@@ -6,11 +6,15 @@ services:
       dockerfile: Dockerfile
     environment:
       - FRONTEND_ASSET_PATH=/assets
-    command: node ./src/server.js
+    command: npx nodemon ./src/server.js
+    volumes:
+      - ./backend/src:/app/src
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
+    volumes:
+      - ./frontend/src:/app/src
   proxy:
     image: nginx
     volumes:
