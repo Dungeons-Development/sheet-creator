@@ -1,5 +1,5 @@
 {
-  "name": "storypointingpoker",
+  "name": "sheet-creator",
   "version": "0.0.0-development",
   "description": "",
   "main": "src/server.js",
@@ -8,27 +8,31 @@
     "lint": "eslint ./src/*.js ./src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest ./src --watch --coverage",
-    "test:ci": "jest ./src --coverage"
+    "test:ci": "jest ./src --coverage --passWithNoTests"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/julianpoy/storypointingpoker.git"
+    "url": "git+https://github.com/Dungeons-Development/sheet-creator.git"
   },
   "author": "Julian Poyourow",
   "license": "AGPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/julianpoy/storypointingpoker/issues"
+    "url": "https://github.com/Dungeons-Development/sheet-creator.git/issues"
   },
-  "homepage": "https://github.com/julianpoy/storypointingpoker#readme",
+  "homepage": "https://github.com/Dungeons-Development/sheet-creator.git#readme",
   "dependencies": {
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "pug": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.17.0",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^26.6.3",
     "nodemon": "^2.0.7"
   }
