@@ -1,5 +1,8 @@
+import root from 'react-shadow';
 import sanitizeHtml from 'sanitize-html';
 import PropTypes from 'prop-types';
+
+import * as shadowStyles from './renderer-shadow.scss';
 
 export const Renderer = (props) => {
   const {
@@ -15,10 +18,11 @@ export const Renderer = (props) => {
     __html: sanitizeHtml(html)
   };
 
-  console.log(html, sanitizedHtml);
-
   return (
-    <div dangerouslySetInnerHTML={sanitizedHtml}></div>
+    <root.div>
+      <div dangerouslySetInnerHTML={sanitizedHtml}></div>
+      <style type="text/css">{shadowStyles.stylesheet}</style>
+    </root.div>
   );
 };
 
