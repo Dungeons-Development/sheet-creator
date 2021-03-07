@@ -33,7 +33,6 @@ export default {
         ['@babel/preset-react',
         {
           'runtime': 'automatic',
-          'importSource': 'preact-jsx-runtime'
         }]
       ],
       babelHelpers: 'bundled'
