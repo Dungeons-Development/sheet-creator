@@ -11,7 +11,7 @@ export const Main = () => {
   return (
     <div>
       <h2>Sheet Creator</h2>
-      <TinyMCE />
+      <TinyMCE html={sheetHtml} setHtml={setSheetHtml} />
       <Renderer html={sheetHtml} options={rendererOptions} />
     </div>
   );
