@@ -20,8 +20,10 @@ export const Renderer = (props) => {
 
   return (
     <root.div>
-      <div dangerouslySetInnerHTML={sanitizedHtml}></div>
+      <div className="phb" dangerouslySetInnerHTML={sanitizedHtml}></div>
       <style type="text/css">{shadowStyles.stylesheet}</style>
+      <link href="//use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet"></link>
+      <link rel="stylesheet" href="https://homebrewery.naturalcrit.com/homebrew/bundle.css"></link>
     </root.div>
   );
 };
