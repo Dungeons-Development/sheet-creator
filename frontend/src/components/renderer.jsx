@@ -29,5 +29,6 @@ export const Renderer = (props) => {
 };
 
 Renderer.propTypes = {
-  options: PropTypes.object
+  options: PropTypes.object,
+  html: PropTypes.string,
 };
