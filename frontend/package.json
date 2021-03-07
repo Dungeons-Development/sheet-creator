@@ -29,7 +29,9 @@
     "install": "^0.13.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-shadow": "^19.0.2",
+    "sanitize-html": "^2.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",

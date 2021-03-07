@@ -8,4 +8,6 @@ import '@ionic/react/css/typography.css';
 
 import './sharedCss/global.scss'; // Globally applied CSS
 
+window.global = window; // Provide 'global' for react-shadow
+
 render(<Main />, document.getElementById('root'));
