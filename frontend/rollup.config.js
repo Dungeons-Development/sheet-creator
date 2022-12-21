@@ -4,32 +4,29 @@ import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
-import builtins from 'rollup-plugin-node-builtins';
+
+const extensions = [
+  '.js', '.jsx', '.ts', '.tsx',
+];
 
 export default {
-  input: 'src/index.jsx',
+  input: 'src/index.tsx',
   output: {
     file: 'dist/bundle.js',
     format: 'umd'
   },
   plugins: [
-    builtins(),
     resolve({
       browser: true,
+      extensions,
     }),
-    json(),
     commonjs(),
-    postcss({
-      extract: false,
-      modules: true,
-      use: ['sass'],
-      globalModulePaths: [/global.scss/],
-    }),
     babel({
+      extensions,
+      include: ['src/**/*'],
       presets: [
+        ["@babel/preset-typescript"],
         ['@babel/preset-react',
         {
           'runtime': 'automatic',
