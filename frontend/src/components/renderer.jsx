@@ -7,15 +7,10 @@ import * as shadowStyles from './renderer-shadow.scss';
 export const Renderer = (props) => {
   const {
     html,
-    options
   } = props;
 
-  const {
-    
-  } = options;
-
   const sanitizedHtml = {
-    __html: sanitizeHtml(html)
+    __html: sanitizeHtml(html),
   };
 
   return (
