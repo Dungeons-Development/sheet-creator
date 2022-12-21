@@ -12,6 +12,9 @@ jobs:
           name: lint
           command: cd backend && npm run lint
       - run:
+          name: typecheck
+          command: cd backend && npm run typecheck
+      - run:
           name: test
           command: cd backend && npm run test:ci
   build-frontend:
