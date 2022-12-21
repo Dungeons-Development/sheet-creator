@@ -1,6 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
+/* eslint arrow-body-style: 0 */
 export const TinyMCE = ({ html, setHtml }) => {
   return (
     <div>
@@ -13,18 +14,18 @@ export const TinyMCE = ({ html, setHtml }) => {
           plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount code'
+            'insertdatetime media table paste code help wordcount code',
           ],
           toolbar:
-            'undo redo | formatselect | bold italic backcolor | \
-            alignleft aligncenter alignright alignjustify | \
-            bullist numlist outdent indent | removeformat | help | code'
+            'undo redo | formatselect | bold italic backcolor | '
+            + 'alignleft aligncenter alignright alignjustify | '
+            + 'bullist numlist outdent indent | removeformat | help | code',
         }}
         onEditorChange={setHtml}
       />
     </div>
   );
-}
+};
 
 TinyMCE.propTypes = {
   html: PropTypes.string,
