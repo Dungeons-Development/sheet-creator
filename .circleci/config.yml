@@ -25,12 +25,12 @@ jobs:
       - run:
           name: install
           command: cd frontend && npm install
-      - run:
-          name: lint
-          command: cd frontend && npm run lint
-      - run:
-          name: test
-          command: cd frontend && npm run test:ci
+      #- run:
+          #name: lint
+          #command: cd frontend && npm run lint
+      #- run:
+          #name: test
+          #command: cd frontend && npm run test:ci
       - run:
           name: build
           command: cd frontend && npm run build
