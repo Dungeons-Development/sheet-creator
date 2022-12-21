@@ -4,9 +4,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    environment:
-      - FRONTEND_ASSET_PATH=/assets
-    command: npx nodemon ./src/server.js
+    command: npx nodemon src/server.ts
     volumes:
       - ./backend/src:/app/src
   frontend:
