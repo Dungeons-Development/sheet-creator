@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {Mode} from '@/types/mode';
 import {RendererMode} from '@/types/rendererMode';
 import styled from 'styled-components';
@@ -32,30 +32,58 @@ const PreviewContainer = styled.div`
   transform-origin: bottom right;
 `;
 
+const AuthoringToolbar = styled.div`
+  width: 500px;
+`;
+
 export const Main = () => {
-  // TODO: Load sheet from server
-  // TODO: Sheet starters/templates
-  const t = () => {
-    const saved = localStorage.getItem('temp');
-
-    return saved ? JSON.parse(saved) : {
-      title: "Untitled",
-      elements: [{
-        type: ElementType.text,
-        coordinates: {
-          x: 0.1,
-          y: 0.1,
-          width: 0.2,
-          height: 0.2
-        },
-        html: 'This is some text',
-      }],
-    };
-  };
-
-  const [sheet, setSheet] = useState<Sheet>(t());
+  const [sheet, setSheet] = useState<Sheet>();
 
   const [mode, setMode] = useState<Mode>(Mode.move);
+
+  // TODO: Load sheet from server
+  // TODO: Sheet starters/templates
+  const load = () => {
+    new Promise(() => {
+      const saved = localStorage.getItem('temp');
+
+      const loaded = saved ? JSON.parse(saved) : {
+        title: "Untitled",
+        elements: [{
+          type: ElementType.text,
+          coordinates: {
+            x: 0.1,
+            y: 0.1,
+            width: 0.2,
+            height: 0.2
+          },
+          html: 'This is some text',
+        }],
+      };
+
+      setSheet(loaded);
+    });
+  };
+
+  const save = () => {
+    new Promise(() => {
+      localStorage.setItem('temp', JSON.stringify(sheet));
+    });
+  };
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  useEffect(() => {
+    save();
+  }, [sheet]);
+
+  if (!sheet) return (
+    <div>
+      Loading...
+    </div>
+  );
 
   const onElementMove = (element: AnyElement, rect: DOMRect) => {
     // Temporary hacks while this isn't connected to a server
@@ -64,15 +92,47 @@ export const Main = () => {
     setSheet({
       ...sheet,
     });
-
-    new Promise(() => {
-      localStorage.setItem('temp', JSON.stringify(sheet));
-    });
   }
+
+  const addText = () => {
+    sheet.elements.push({
+      type: ElementType.text,
+      coordinates: {
+        x: 0.1,
+        y: 0.1,
+        width: 0.2,
+        height: 0.2
+      },
+      html: 'Textbox',
+    });
+    setSheet({
+      ...sheet,
+    });
+  };
+
+  const addImage = () => {
+    sheet.elements.push({
+      type: ElementType.text,
+      coordinates: {
+        x: 0.1,
+        y: 0.1,
+        width: 0.2,
+        height: 0.2
+      },
+      html: 'Textbox',
+    });
+    setSheet({
+      ...sheet,
+    });
+  };
 
   return (
     <div>
       <h2>Sheet Creator</h2>
+      <AuthoringToolbar>
+        <button onClick={() => addText()}>Add Text</button>
+        <button onClick={() => addImage()}>Add Image</button>
+      </AuthoringToolbar>
       <EditorContainer>
         <Renderer sheet={sheet} mode={RendererMode.edit} onElementMove={onElementMove} />
       </EditorContainer>

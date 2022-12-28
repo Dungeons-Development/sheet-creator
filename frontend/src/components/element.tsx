@@ -102,8 +102,6 @@ export const Element = (props: {
       Math.min((element.coordinates.height + (vector.y / boundingBox.height)) + element.coordinates.y, 1) - element.coordinates.y,
     );
 
-    console.log("new coords", newCoordinates);
-
     onMove(newCoordinates);
   };
 
