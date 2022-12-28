@@ -1,10 +1,12 @@
 /* eslint-disable */
+import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
+import alias from '@rollup/plugin-alias';
 
 const extensions = [
   '.js', '.jsx', '.ts', '.tsx',
@@ -17,6 +19,14 @@ export default {
     format: 'umd'
   },
   plugins: [
+    alias({
+      entries: [
+        {
+          find: '@',
+          replacement: path.resolve('./src')
+        }
+      ]
+    }),
     resolve({
       browser: true,
       extensions,
@@ -35,6 +45,7 @@ export default {
       babelHelpers: 'bundled'
     }),
     replace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     process.argv.includes('--watch') &&
@@ -43,6 +54,6 @@ export default {
         port: 3001,
         contentBase: 'dist',
       }),
-    process.argv.includes('--watch') && livereload({ watch: 'dist' }),
+    process.argv.includes('--watch') && livereload({ watch: 'src' }),
   ]
 }

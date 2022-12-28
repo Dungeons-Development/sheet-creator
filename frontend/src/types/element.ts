@@ -3,15 +3,8 @@ export enum ElementType {
   image = 'image',
 }
 
-export interface ElementCoordinates {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-}
-
 interface BaseElement {
-  coordinates: ElementCoordinates;
+  coordinates: DOMRect;
 }
 
 export interface ImageElement extends BaseElement {
@@ -24,5 +17,5 @@ export interface TextElement extends BaseElement {
   html: string;
 }
 
-export type Element = TextElement | ImageElement;
+export type AnyElement = TextElement | ImageElement;
 

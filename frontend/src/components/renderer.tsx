@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import sanitizeHtml from 'sanitize-html';
 
-import { Sheet } from "../types/sheet";
-import {Element, ElementType} from '../types/element';
+import { Sheet } from "@/types/sheet";
 import {useMemo, useState} from 'react';
+import {Element} from './element';
+import {RendererMode} from '@/types/rendererMode';
+import {AnyElement} from '@/types/element';
 
 const RendererContainer = styled.div`
   position: absolute;
@@ -13,70 +14,12 @@ const RendererContainer = styled.div`
   bottom: 0;
 `;
 
-const ElementContainer = styled.div<{
-  top: number,
-  left: number,
-  right: number,
-  bottom: number,
-}>``;
-
-const TextElement = (props: {
-  html: string,
+export const Renderer = (props: {
+  sheet: Sheet,
+  mode: RendererMode,
+  onElementMove?: (element: AnyElement, rect: DOMRect) => void,
 }) => {
-  const { html } = props;
-
-  const sanitizedHtml = sanitizeHtml(html);
-
-  return (
-    <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }}></div>
-  );
-};
-
-const ImageElement = (props: {
-  url: string,
-}) => {
-  const { url } = props;
-
-  return (
-    <img src={url} />
-  );
-};
-
-const Element1 = (props: {
-  element: Element,
-  boundingBox: DOMRect
-}) => {
-  const { element, boundingBox } = props;
-
-  const elementContent = useMemo(() => {
-    switch(element.type) {
-      case ElementType.text: {
-        return (
-          <TextElement html={element.html} />
-        );
-      }
-      case ElementType.image: {
-        return (
-          <ImageElement url={element.url} />
-        );
-      }
-    }
-  }, [element]);
-
-  return (
-    <ElementContainer
-      top={element.coordinates.y1}
-      left={element.coordinates.x1}
-      right={element.coordinates.x2}
-      bottom={element.coordinates.y2}
-    >
-      {elementContent}
-    </ElementContainer>
-  );
-};
-
-export const Renderer = (props: { sheet: Sheet }) => {
-  const { sheet } = props;
+  const { sheet, mode, onElementMove } = props;
 
   const [renderer, setRenderer] = useState<HTMLDivElement>();
 
@@ -84,13 +27,31 @@ export const Renderer = (props: { sheet: Sheet }) => {
     setRenderer(element);
   };
 
+  const boundingBox = useMemo(() => {
+    if (!renderer) return;
+
+    const nativeBBox = renderer.getBoundingClientRect();
+    const ratio = renderer.offsetWidth / nativeBBox.width;
+
+    const bounding = new DOMRect(
+      nativeBBox.x * ratio,
+      nativeBBox.y * ratio,
+      nativeBBox.width * ratio,
+      nativeBBox.height * ratio,
+    );
+
+    return bounding;
+  }, [renderer]);
+
   return (
     <RendererContainer ref={registerRef}>
-      {renderer && sheet.elements.map((element, idx) => (
-        <Element1
+      {renderer && boundingBox && sheet.elements.map((element, idx) => (
+        <Element
           key={idx}
           element={element}
-          boundingBox={renderer.getBoundingClientRect()}
+          boundingBox={boundingBox}
+          rendererMode={mode}
+          onMove={(rect) => onElementMove?.(element, rect)}
         />
       ))}
     </RendererContainer>
