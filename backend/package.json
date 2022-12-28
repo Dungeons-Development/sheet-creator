@@ -10,7 +10,7 @@
     "typecheck": "npx tsc --noEmit",
     "test": "jest ./src --watch --coverage",
     "test:ci": "jest ./src --coverage --passWithNoTests",
-    "migrate": "docker-compose exec server npx prisma migrate dev"
+    "migrate:dev": "docker-compose exec server npx prisma migrate dev"
   },
   "repository": {
     "type": "git",
