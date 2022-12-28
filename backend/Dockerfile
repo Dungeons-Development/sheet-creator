@@ -8,6 +8,7 @@ COPY package-lock.json package-lock.json
 
 RUN npm install
 
+COPY prisma prisma
 COPY ./src /app/src
 
 CMD node -r esbuild-register src/server.ts
