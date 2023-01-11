@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {ElementInterface, ElementType} from '@/types/element';
-import {useContext, useMemo} from 'react';
+import React, {useContext, useMemo} from 'react';
 import {RendererMode} from '@/types/rendererMode';
 import {DragHandle} from './dragHandle';
 import {TextElement} from './elements/text';
@@ -63,16 +63,16 @@ export const Element = (props: {
 
   const elementContent = useMemo(() => {
     switch(element.type) {
-      case ElementType.text: {
-        return (
-          <TextElement element={element} mode={mode} />
-        );
-      }
-      case ElementType.image: {
-        return (
-          <ImageElement element={element} />
-        );
-      }
+    case ElementType.text: {
+      return (
+        <TextElement element={element} mode={mode} />
+      );
+    }
+    case ElementType.image: {
+      return (
+        <ImageElement element={element} />
+      );
+    }
     }
   }, [element]);
 

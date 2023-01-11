@@ -1,5 +1,5 @@
-import {MouseEvent as ReactMouseEvent, useEffect, useRef, useState} from "react";
-import styled from "styled-components";
+import React, {MouseEvent as ReactMouseEvent, useEffect, useRef, useState} from 'react';
+import styled from 'styled-components';
 
 const Handle = styled.div`
   position: absolute;
@@ -22,11 +22,11 @@ export const DragHandle = (props: {
 
   const onMouseUp = (event: MouseEvent) => {
     setDragging(false);
-    console.log("mouseup");
+    console.log('mouseup', event);
   };
 
   const onMouseDown = (event: ReactMouseEvent<HTMLDivElement>) => {
-    console.log("mousedown");
+    console.log('mousedown');
     setDragging(true);
     
     positionRef.current = new DOMPoint(event.pageX, event.pageY);
@@ -34,7 +34,7 @@ export const DragHandle = (props: {
 
   const onMouseMove = (event: MouseEvent) => {
     if (!dragging) return;
-    console.log("mouseMove");
+    console.log('mouseMove');
 
     const cursorLocation = new DOMPoint(event.pageX, event.pageY);
 
@@ -52,7 +52,7 @@ export const DragHandle = (props: {
     return () => {
       document.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('mousemove', onMouseMove);
-    }
+    };
   }, [onMouseUp, onMouseMove]);
 
   return (

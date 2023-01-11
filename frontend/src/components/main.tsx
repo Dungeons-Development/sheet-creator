@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import {Mode} from '@/types/mode';
+import React, { useEffect, useState } from 'react';
 import {RendererMode} from '@/types/rendererMode';
 import styled from 'styled-components';
 import {ElementInterface, ElementType} from '@/types/element';
@@ -42,8 +41,6 @@ const AuthoringToolbar = styled.div`
 export const Main = () => {
   const [sheet, setSheet] = useState<Sheet>();
 
-  const [mode, setMode] = useState<Mode>(Mode.move);
-
   // TODO: Load sheet from server
   // TODO: Sheet starters/templates
   const load = () => {
@@ -51,7 +48,7 @@ export const Main = () => {
       const saved = localStorage.getItem('temp');
 
       const starterSheet: Sheet = {
-        title: "Untitled",
+        title: 'Untitled',
         elements: [{
           id: generateId(),
           type: ElementType.text,
@@ -63,7 +60,7 @@ export const Main = () => {
           ),
           html: 'This is some text',
         }],
-      }
+      };
 
       const loaded: Sheet = saved ? JSON.parse(saved) : starterSheet;
 
@@ -92,10 +89,11 @@ export const Main = () => {
   );
 
   const updateElement = (element: ElementInterface) => {
+    console.log('element updated', element);
     setSheet({
       ...sheet,
     });
-  }
+  };
 
   const deleteElement = (element: ElementInterface) => {
     sheet.elements.splice(sheet.elements.indexOf(element), 1);
@@ -103,7 +101,7 @@ export const Main = () => {
     setSheet({
       ...sheet,
     });
-  }
+  };
 
   const addText = () => {
     sheet.elements.push({

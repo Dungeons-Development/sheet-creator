@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-import { Sheet } from "@/types/sheet";
-import {useMemo, useState} from 'react';
+import { Sheet } from '@/types/sheet';
+import React, {useMemo, useState} from 'react';
 import {Element} from './element';
 import {RendererMode} from '@/types/rendererMode';
-import {ElementInterface} from '@/types/element';
 
 const RendererContainer = styled.div`
   position: absolute;
@@ -46,7 +45,7 @@ export const Renderer = (props: {
 
   return (
     <RendererContainer ref={registerRef}>
-      {renderer && boundingBox && sheet.elements.map((element, idx) => (
+      {renderer && boundingBox && sheet.elements.map((element) => (
         <Element
           key={element.id}
           mode={mode}
