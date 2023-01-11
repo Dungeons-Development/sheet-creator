@@ -1,4 +1,5 @@
-import {ImageElementInterface} from "@/types/element";
+import React from 'react';
+import {ImageElementInterface} from '@/types/element';
 
 export const ImageElement = (props: {
   element: ImageElementInterface,

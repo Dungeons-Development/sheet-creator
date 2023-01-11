@@ -1,8 +1,8 @@
-import sanitizeHtml from 'sanitize-html';
-import { Editor, EditorContent, useEditor } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
+import React, {useState} from 'react';
+
+import { Editor, EditorContent, useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
 import {RendererMode} from '@/types/rendererMode';
-import {useState} from 'react';
 import styled from 'styled-components';
 import {TextElementInterface} from '@/types/element';
 
@@ -108,24 +108,20 @@ const MenuBar = (props: {
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editor.isActive('bulletList') ? 'is-active' : ''}
       >
-        <i className={"ri-list-unordered"}></i>
+        <i className={'ri-list-unordered'}></i>
       </MenuButton>
       <MenuButton
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive('orderedList') ? 'is-active' : ''}
       >
-        <i className={"ri-list-ordered"}></i>
+        <i className={'ri-list-ordered'}></i>
       </MenuButton>
       <MenuButton onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        <i className={"ri-page-separator"}></i>
+        <i className={'ri-page-separator'}></i>
       </MenuButton>
     </MenuBarContainer>
-  )
-}
-
-const TextElementEditContainer = styled.div`
-  position: absolute;
-`;
+  );
+};
 
 const StyledEditorContent = styled(EditorContent)`
   height: 100%;
@@ -167,7 +163,7 @@ export const TextElement = (props: {
   const editorFocus = () => {
     if (mode !== RendererMode.edit) return;
 
-     setEditMode(true);
+    setEditMode(true);
   };
 
   const editorBlur = (event: React.FocusEvent<HTMLDivElement>) => {

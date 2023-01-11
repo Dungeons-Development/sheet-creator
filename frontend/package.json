@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c --watch",
-    "lint": "eslint ./src/*.tsx ./src/**/*.tsx",
+    "lint": "eslint . --ext ts --ext tsx",
     "lint:fix": "npm run lint --fix"
   },
   "repository": {
