@@ -23,7 +23,6 @@
   "dependencies": {
     "@tiptap/react": "^2.0.0-beta.209",
     "@tiptap/starter-kit": "^2.0.0-beta.209",
-    "@types/react-dom": "^18.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanitize-html": "^2.8.0",
@@ -42,6 +41,7 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",
+    "@types/react-dom": "^18.0.9",
     "@types/sanitize-html": "^2.8.0",
     "@types/styled-components": "^5.1.26",
     "@types/uuid": "^9.0.0",
