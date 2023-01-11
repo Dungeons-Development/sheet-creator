@@ -54,6 +54,6 @@ export default {
         port: 3001,
         contentBase: 'dist',
       }),
-    process.argv.includes('--watch') && livereload({ watch: 'src' }),
+    process.argv.includes('--watch') && livereload({ watch: 'src', delay: 200 }),
   ]
 }

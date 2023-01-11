@@ -3,11 +3,9 @@ import styled from "styled-components";
 
 const Handle = styled.div`
   position: absolute;
-  width: 20px;
-  height: 20px;
   
-  box-shadow: 1px 1px 7px rgba(0,0,0,0.7);
-  background: rgba(0,0,0,0.1);
+  box-shadow: none;
+  background: none;
 
   user-select: none;
 `;
@@ -15,8 +13,9 @@ const Handle = styled.div`
 export const DragHandle = (props: {
   className?: string,
   onMove: (vector: DOMPoint) => void,
+  children: React.ReactNode,
 }) => {
-  const { className, onMove } = props;
+  const { className, onMove, children } = props;
 
   const [dragging, setDragging] = useState(false);
   const positionRef = useRef(new DOMPoint(0, 0));
@@ -61,7 +60,7 @@ export const DragHandle = (props: {
       className={className}
       onMouseDown={onMouseDown}
     >
-      X
+      {children}
     </Handle>
   );
 };

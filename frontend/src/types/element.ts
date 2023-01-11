@@ -3,19 +3,20 @@ export enum ElementType {
   image = 'image',
 }
 
-interface BaseElement {
+interface BaseElementInterface {
+  id: string;
   coordinates: DOMRect;
 }
 
-export interface ImageElement extends BaseElement {
+export interface ImageElementInterface extends BaseElementInterface {
   type: ElementType.image;
   url: string;
 }
 
-export interface TextElement extends BaseElement {
+export interface TextElementInterface extends BaseElementInterface {
   type: ElementType.text;
   html: string;
 }
 
-export type AnyElement = TextElement | ImageElement;
+export type ElementInterface = TextElementInterface | ImageElementInterface;
 

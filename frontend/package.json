@@ -24,11 +24,14 @@
   "homepage": "https://github.com/Dungeons-Development/sheet-creator.git#readme",
   "dependencies": {
     "@tinymce/tinymce-react": "^4.2.0",
+    "@tiptap/react": "^2.0.0-beta.209",
+    "@tiptap/starter-kit": "^2.0.0-beta.209",
     "@types/react-dom": "^18.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanitize-html": "^2.8.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -44,6 +47,7 @@
     "@rollup/plugin-replace": "^5.0.2",
     "@types/sanitize-html": "^2.8.0",
     "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.0",
     "babel-loader": "^9.1.0",
     "eslint": "^8.30.0",
     "eslint-config-airbnb": "^19.0.4",

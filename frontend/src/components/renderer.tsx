@@ -4,7 +4,7 @@ import { Sheet } from "@/types/sheet";
 import {useMemo, useState} from 'react';
 import {Element} from './element';
 import {RendererMode} from '@/types/rendererMode';
-import {AnyElement} from '@/types/element';
+import {ElementInterface} from '@/types/element';
 
 const RendererContainer = styled.div`
   position: absolute;
@@ -12,14 +12,15 @@ const RendererContainer = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
+
+  background: white;
 `;
 
 export const Renderer = (props: {
   sheet: Sheet,
   mode: RendererMode,
-  onElementMove?: (element: AnyElement, rect: DOMRect) => void,
 }) => {
-  const { sheet, mode, onElementMove } = props;
+  const { sheet, mode } = props;
 
   const [renderer, setRenderer] = useState<HTMLDivElement>();
 
@@ -47,11 +48,11 @@ export const Renderer = (props: {
     <RendererContainer ref={registerRef}>
       {renderer && boundingBox && sheet.elements.map((element, idx) => (
         <Element
-          key={idx}
+          key={element.id}
+          mode={mode}
           element={element}
           boundingBox={boundingBox}
           rendererMode={mode}
-          onMove={(rect) => onElementMove?.(element, rect)}
         />
       ))}
     </RendererContainer>

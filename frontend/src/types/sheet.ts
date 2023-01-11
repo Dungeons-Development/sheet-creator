@@ -1,7 +1,7 @@
-import { Element } from './element';
+import { ElementInterface } from './element';
 
 export interface Sheet {
   title: string,
-  elements: Element[],
+  elements: ElementInterface[],
 }
 
